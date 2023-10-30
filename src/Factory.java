@@ -17,26 +17,32 @@ public final class Factory {
 
 
     public static Action createAnimationAction(Entity entity, int repeatCount) {
-        return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
+        //return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
+        return new Animation(entity, repeatCount);
     }
 
     public static Action createActivityAction(Entity entity, WorldModel world, ImageStore imageStore) {
-        return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
+        //return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
+        return new Activity(entity, world, imageStore);
     }
 
-    public static Entity createHouse(String id, Point position, List<PImage> images) {
-        return new Entity(EntityKind.HOUSE, id, position, images, 0, 0, 0, 0, 0, 0);
+    public static House createHouse(String id, Point position, List<PImage> images) {
+        return new House(0, images, id, position);
+        // return new Entity(EntityKind.HOUSE, id, position, images, 0, 0, 0, 0, 0, 0);
     }
 
-    public static Entity createObstacle(String id, Point position, double animationPeriod, List<PImage> images) {
-        return new Entity(EntityKind.OBSTACLE, id, position, images, 0, 0, 0, animationPeriod, 0, 0);
+    public static Obstacle createObstacle(String id, Point position, double animationPeriod, List<PImage> images) {
+        return new Obstacle(0, images, id, position, animationPeriod);
+        //return new Entity(EntityKind.OBSTACLE, id, position, images, 0, 0, 0, animationPeriod, 0, 0);
     }
 
-    public static Entity createTree(String id, Point position, double actionPeriod, double animationPeriod, int health, List<PImage> images) {
-        return new Entity(EntityKind.TREE, id, position, images, 0, 0, actionPeriod, animationPeriod, health, 0);
+    public static Tree createTree(String id, Point position, double actionPeriod, double animationPeriod, int health, List<PImage> images) {
+        return new Tree(0,images, id, position, 0, health, actionPeriod, animationPeriod);
+        // return new Entity(EntityKind.TREE, id, position, images, 0, 0, actionPeriod, animationPeriod, health, 0);
     }
-    public static Entity createTreeWithDefaults(String id, Point position, List<PImage> images) {
-        return new Entity(EntityKind.TREE, id, position, images, 0, 0, Factory.getNumFromRange(TREE_ACTION_MAX, TREE_ACTION_MIN), Factory.getNumFromRange(TREE_ANIMATION_MAX, TREE_ANIMATION_MIN), Factory.getIntFromRange(TREE_HEALTH_MAX, TREE_HEALTH_MIN), 0);
+    public static Tree createTreeWithDefaults(String id, Point position, List<PImage> images) {
+        return new Tree(0, images, id, position, 0, Factory.getIntFromRange(TREE_HEALTH_MAX, TREE_HEALTH_MIN), Factory.getNumFromRange(TREE_ACTION_MAX, TREE_ACTION_MIN), Factory.getNumFromRange(TREE_ANIMATION_MAX, TREE_ANIMATION_MIN));
+        // return new Entity(EntityKind.TREE, id, position, images, 0, 0, Factory.getNumFromRange(TREE_ACTION_MAX, TREE_ACTION_MIN), Factory.getNumFromRange(TREE_ANIMATION_MAX, TREE_ANIMATION_MIN), Factory.getIntFromRange(TREE_HEALTH_MAX, TREE_HEALTH_MIN), 0);
     }
     private static int getIntFromRange(int max, int min) {
         Random rand = new Random();
@@ -48,27 +54,32 @@ public final class Factory {
         return min + rand.nextDouble() * (max - min);
     }
 
-    public static Entity createStump(String id, Point position, List<PImage> images) {
-        return new Entity(EntityKind.STUMP, id, position, images, 0, 0, 0, 0, 0, 0);
+    public static Stump createStump(String id, Point position, List<PImage> images) {
+        return new Stump(0, images, id, position);
+        //return new Entity(EntityKind.STUMP, id, position, images, 0, 0, 0, 0, 0, 0);
     }
 
     // health starts at 0 and builds up until ready to convert to Tree
-    public static Entity createSapling(String id, Point position, List<PImage> images) {
-        return new Entity(EntityKind.SAPLING, id, position, images, 0, 0, SAPLING_ACTION_ANIMATION_PERIOD, SAPLING_ACTION_ANIMATION_PERIOD, 0, SAPLING_HEALTH_LIMIT);
+    public static Sapling createSapling(String id, Point position, List<PImage> images) {
+        return new Sapling(0, images, id, position, 0, SAPLING_ACTION_ANIMATION_PERIOD, SAPLING_HEALTH_LIMIT, SAPLING_ACTION_ANIMATION_PERIOD);
+        // return new Entity(EntityKind.SAPLING, id, position, images, 0, 0, SAPLING_ACTION_ANIMATION_PERIOD, SAPLING_ACTION_ANIMATION_PERIOD, 0, SAPLING_HEALTH_LIMIT);
     }
 
-    public static Entity createFairy(String id, Point position, double actionPeriod, double animationPeriod, List<PImage> images) {
-        return new Entity(EntityKind.FAIRY, id, position, images, 0, 0, actionPeriod, animationPeriod, 0, 0);
+    public static Fairy createFairy(String id, Point position, double actionPeriod, double animationPeriod, List<PImage> images) {
+        return new Fairy(0,images,id, position, actionPeriod, animationPeriod);
+        // return new Entity(EntityKind.FAIRY, id, position, images, 0, 0, actionPeriod, animationPeriod, 0, 0);
     }
 
     // need resource count, though it always starts at 0
-    public static Entity createPersonSearching(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
-        return new Entity(EntityKind.PERSON_SEARCHING, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
+    public static Person_Searching createPersonSearching(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
+        return new Person_Searching(0, images, id, position, actionPeriod, animationPeriod, resourceLimit, 0, 0);
+        // return new Entity(EntityKind.PERSON_SEARCHING, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
     }
 
     // don't technically need resource count ... full
-    public static Entity createPersonFull(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
-        return new Entity(EntityKind.PERSON_FULL, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
+    public static Person_Full createPersonFull(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
+        return new Person_Full(0, images, id, position, actionPeriod, animationPeriod, resourceLimit);
+        // return new Entity(EntityKind.PERSON_FULL, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
     }
 
 }

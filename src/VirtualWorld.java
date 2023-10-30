@@ -73,7 +73,7 @@ public final class VirtualWorld extends PApplet {
         Optional<Entity> entityOptional = world.getOccupant(pressed);
         if (entityOptional.isPresent()) {
             Entity entity = entityOptional.get();
-            System.out.println("id: " + entity.getId() + " - " + entity.getKind() + " at " + entity.getPosition());
+            System.out.println("id: " + entity.getId() + " - " + entity.getClass() + " at " + entity.getPosition());
         }
 
     }
@@ -130,8 +130,13 @@ public final class VirtualWorld extends PApplet {
         }
     }
     public void scheduleActions(WorldModel world, EventScheduler scheduler, ImageStore imageStore) {
+//        for (Entity entity : world.getEntities()) {
+//            entity.scheduleActions(scheduler, world, imageStore);
+//        }
         for (Entity entity : world.getEntities()) {
-            entity.scheduleActions(scheduler, world, imageStore);
+            if (entity instanceof NeedSchedule) {
+                ((NeedSchedule) entity).scheduleActions(scheduler, world, imageStore);
+            }
         }
     }
     public void parseCommandLine(String[] args) {
