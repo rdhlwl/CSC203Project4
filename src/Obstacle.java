@@ -11,6 +11,9 @@ public class Obstacle extends Entity implements NeedSchedule{
         this.animationPeriod = animationPeriod;
     }
 
+    public double getAnimationPeriod() {
+        return animationPeriod;
+    }
 
     public void scheduleActions(EventScheduler scheduler, WorldModel world, ImageStore imageStore) {
 

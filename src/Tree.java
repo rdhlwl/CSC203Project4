@@ -17,6 +17,10 @@ public class Tree extends Entity implements NeedSchedule{
         this.animationPeriod = animationPeriod;
     }
 
+    public double getAnimationPeriod() {
+        return animationPeriod;
+    }
+
     public void executeTreeActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
 
         if (!transformPlant(world, scheduler, imageStore)) {

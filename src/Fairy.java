@@ -34,6 +34,10 @@ public class Fairy extends Entity implements NeedSchedule{
         scheduler.scheduleEvent(this, Factory.createActivityAction(this, world, imageStore), actionPeriod);
     }
 
+    public double getAnimationPeriod() {
+        return animationPeriod;
+    }
+
     public void scheduleActions(EventScheduler scheduler, WorldModel world, ImageStore imageStore) {
         scheduler.scheduleEvent(this, Factory.createActivityAction(this, world, imageStore), actionPeriod);
         scheduler.scheduleEvent(this, Factory.createAnimationAction(this, 0), animationPeriod);

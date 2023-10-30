@@ -24,6 +24,10 @@ public class Person_Full extends Entity implements NeedSchedule{
         scheduler.scheduleEvent(this, Factory.createAnimationAction(this, 0), animationPeriod);
     }
 
+    public double getAnimationPeriod() {
+        return animationPeriod;
+    }
+
     public void executePersonFullActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
         Optional<Entity> fullTarget = world.findNearest(this.getPosition(), new ArrayList<>(List.of(EntityKind.HOUSE)));
 

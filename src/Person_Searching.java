@@ -23,6 +23,10 @@ public class Person_Searching extends Entity implements NeedSchedule{
         this.health = health;
     }
 
+    public double getAnimationPeriod() {
+        return animationPeriod;
+    }
+
     public void executePersonSearchingActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
         Optional<Entity> target = world.findNearest(this.getPosition(), new ArrayList<>(Arrays.asList(EntityKind.TREE, EntityKind.SAPLING)));
 

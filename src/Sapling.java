@@ -27,6 +27,9 @@ public class Sapling extends Entity implements NeedSchedule{
         return transformSapling(world, scheduler, imageStore);
     }
 
+    public double getAnimationPeriod() {
+        return animationPeriod;
+    }
 
     private boolean transformSapling(WorldModel world, EventScheduler scheduler, ImageStore imageStore) {
         if (health <= 0) {

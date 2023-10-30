@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-10-24T04:15:12.349Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="qqrc9ZWaGjKKNMi3Xabq" version="22.0.6" type="onedrive" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-10-30T16:27:58.654Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="hEGIf6IRSVzEJajPDLrz" version="22.0.8" type="onedrive" pages="2">
   <diagram id="Yo6Zvny2ZRX3JAPKxXua" name="Page 2">
     <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -154,16 +154,16 @@
           <mxGeometry y="78" width="170" height="26" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-529" value="Entity" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
-          <mxGeometry x="2065" y="1440" width="430" height="650" as="geometry" />
+          <mxGeometry x="2065" y="1440" width="430" height="390" as="geometry" />
         </mxCell>
-        <mxCell id="IZyeWjeiiD0KSJfyj89O-530" value="-kind: EntityKind&#xa;-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;-resourceLimit: int&#xa;-resourceCount: int&#xa;-actionPeriod: int&#xa;-animationPeriod: int&#xa;-health: int&#xa;-healthLimit: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-529">
+        <mxCell id="IZyeWjeiiD0KSJfyj89O-530" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-529">
           <mxGeometry y="26" width="430" height="174" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-531" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-529">
           <mxGeometry y="200" width="430" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="IZyeWjeiiD0KSJfyj89O-532" value="+nextImage(): void&#xa;&#xa;+executeSaplingActivity(WorldModel, ImageStore, EventScheduler): void&#xa;+executeTreeActivity(WorldModel, ImageStore, EventScheduler): void&#xa;+executeFairyActivity(WorldModel, ImageStore, EventScheduler): void&#xa;+executePersonSearchingActivity(WorldModel, ImageStore, EventScheduler): void                &#xa;+executePersonFullActivity(WorldModel, ImageStore, EventScheduler): void&#xa;&#xa; +scheduleActions(EventScheduler, WorldModel, ImageStore): void &#xa; &#xa;-transformSearching(WorldModel, EventScheduler, ImageStore): boolean &#xa;-transformFull(WorldModel, EventScheduler, ImageStore): void  &#xa;+transformPlant(WorldModel, EventScheduler, ImageStore): boolean                     &#xa;-transformTree(WorldModel, EventScheduler, ImageStore): boolean                  &#xa;-transformSapling(WorldModel, EventScheduler, ImageStore): boolean&#xa;&#xa;+moveToFairy(WorldModel, Entity, EventScheduler): boolean                  &#xa;+moveToSearching(WorldModel, Entity, EventScheduler): boolean          &#xa;+moveToFull(WorldModel, Entity, EventScheduler): boolean  &#xa;  &#xa;+nextPositionFairy(WorldModel, Point): Point          &#xa;+nextPositionPerson(WorldModel, Point): Point  &#xa;&#xa;+getCurrentImage(): PImage&#xa;+getAnimationPeriod(): double   &#xa;+log(): String&#xa;+getKind()&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-529">
-          <mxGeometry y="208" width="430" height="442" as="geometry" />
+        <mxCell id="IZyeWjeiiD0KSJfyj89O-532" value="+nextImage(): void&#xa;&#xa;&#xa;+getCurrentImage(): PImage&#xa;+log(): String&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-529">
+          <mxGeometry y="208" width="430" height="182" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-533" value="Viewport" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
           <mxGeometry x="1800" y="1600" width="230" height="250" as="geometry" />
@@ -178,7 +178,7 @@
           <mxGeometry y="108" width="230" height="142" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-537" value="Event" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
-          <mxGeometry x="1980" y="2190" width="165" height="158" as="geometry" />
+          <mxGeometry x="1790" y="2500" width="165" height="158" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-538" value="-action: Action&#xa;-time: long&#xa;-entity: Entity" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-537">
           <mxGeometry y="26" width="165" height="64" as="geometry" />
@@ -211,7 +211,7 @@
           <mxGeometry y="88" width="170" height="122" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-548" value="Action" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
-          <mxGeometry x="2260" y="2160" width="280" height="190" as="geometry" />
+          <mxGeometry x="2090" y="2500" width="280" height="190" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-549" value="-kind: ActionKind&#xa;-entity: Entity&#xa;-world: WorldModel&#xa;-imageStore: ImageStore&#xa;-repeatCount: int      " style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-548">
           <mxGeometry y="26" width="280" height="104" as="geometry" />
@@ -223,7 +223,7 @@
           <mxGeometry y="138" width="280" height="52" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-552" value="ActionKind" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
-          <mxGeometry x="2600" y="2102" width="160" height="68" as="geometry" />
+          <mxGeometry x="2400" y="2610" width="160" height="68" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-553" value="ACTIVITY&#xa;ANIMATION" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-552">
           <mxGeometry y="26" width="160" height="34" as="geometry" />
@@ -232,7 +232,7 @@
           <mxGeometry y="60" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-561" value="WorldLoader" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
-          <mxGeometry x="1822.5700000000002" y="2410" width="440" height="760" as="geometry" />
+          <mxGeometry x="1760.0000000000002" y="3010" width="440" height="760" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-562" value="+STUMP_KEY: String &lt;&lt;static&gt;&gt;&#xa;+SAPLING_KEY: String &lt;&lt;static&gt;&gt;&#xa;+TREE_KEY: String &lt;&lt;static&gt;&gt;&#xa;&#xa;-PROPERTY_KEY: int                           &lt;&lt;static&gt;&gt;&#xa;-PROPERTY_ID: int &lt;&lt;static&gt;&gt;&#xa;-PROPERTY_ID: int                    &lt;&lt;static&gt;&gt;&#xa;-PROPERTY_COL: int                    &lt;&lt;static&gt;&gt;&#xa;-PROPERTY_ROW: int                    &lt;&lt;static&gt;&gt;&#xa;-ENTITY_NUM_PROPERTIES: int &lt;&lt;static&gt;&gt;&#xa;&#xa;-STUMP_NUM_PROPERTIES; int &lt;&lt;static&gt;&gt;&#xa;-SAPLING_NUM_PROPERTIES: int                      &lt;&lt;static&gt;&gt;&#xa;&#xa;-OBSTACLE_KEY: String                        &lt;&lt;static&gt;&gt;&#xa;-OBSTACLE_ANIMATION_PERIOD: int     &lt;&lt;static&gt;&gt;&#xa;-OBSTACLE_NUM_PROPERTIES: int                &lt;&lt;static&gt;&gt;&#xa;&#xa;-PERSON_KEY: String                               &lt;&lt;static&gt;&gt;&#xa;-PERSON_ACTION_PERIOD: int             &lt;&lt;static&gt;&gt;&#xa;-PERSON_ANIMATION_PERIOD: int          &lt;&lt;static&gt;&gt;&#xa;-PERSON_LIMIT: int                              &lt;&lt;static&gt;&gt;&#xa;-PERSON_NUM_PROPERTIES: int                     &lt;&lt;static&gt;&gt;&#xa;&#xa;-HOUSE_KEY: String                           &lt;&lt;static&gt;&gt;&#xa;-HOUSE_NUM_PROPERTIES: int                 &lt;&lt;static&gt;&gt;&#xa;&#xa;-FAIRY_KEY: String                            &lt;&lt;static&gt;&gt;&#xa;-FAIRY_ANIMATION_PERIOD: int      &lt;&lt;static&gt;&gt;&#xa;-FAIRY_ACTION_PERIOD: int      &lt;&lt;static&gt;&gt;&#xa;-FAIRY_NUM_PROPERTIES: int         &lt;&lt;static&gt;&gt;&#xa;&#xa;-TREE_ANIMATION_PERIOD: int      &lt;&lt;static&gt;&gt;&#xa;-TREE_ACTION_PERIOD: int          &lt;&lt;static&gt;&gt;&#xa;-TREE_HEALTH: int   &lt;&lt;static&gt;&gt;&#xa;-TREE_NUM_PROPERTIES: int &lt;&lt;static&gt;&gt;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#000000;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-561">
           <mxGeometry y="26" width="440" height="524" as="geometry" />
@@ -247,7 +247,7 @@
           <mxGeometry y="558" width="440" height="202" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-566" value="ImageLoader" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
-          <mxGeometry x="2340" y="2410" width="490" height="210" as="geometry" />
+          <mxGeometry x="2290" y="3130" width="490" height="210" as="geometry" />
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-567" value="-COLOR_MASK: int                             &lt;&lt;static&gt;&gt;&#xa;-KEYED_IMAGE_MIN: int                        &lt;&lt;static&gt;&gt;&#xa;-KEYED_RED_IDX: int                        &lt;&lt;static&gt;&gt;&#xa;-KEYED_GREEN_IDX: int                        &lt;&lt;static&gt;&gt;&#xa;-KEYED_BLUE_IDX: int                        &lt;&lt;static&gt;&gt;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#000000;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-566">
           <mxGeometry y="26" width="490" height="94" as="geometry" />
@@ -260,6 +260,99 @@
         </mxCell>
         <mxCell id="IZyeWjeiiD0KSJfyj89O-569" value="+loadImages(Scanner, ImageStore, PApplet): void                              &lt;&lt;static&gt;&gt;&#xa;-processImageLine(Map&lt;String, List&lt;PImage&gt;&gt;, String, PApplet): void &lt;&lt;static&gt;&gt;&#xa;-getImages(Map&lt;String, List&lt;PImage&gt;): List&lt;PImage&gt;                        &lt;&lt;static&gt;&gt;&#xa;-setAlpha(PImage, int, int): void                                 &lt;&lt;static&gt;&gt;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontColor=#000000;" vertex="1" parent="IZyeWjeiiD0KSJfyj89O-566">
           <mxGeometry y="128" width="490" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-1" value="House" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="1820" y="2010" width="260" height="208" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-2" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-1">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-1">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-9" value="Person_Full" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="2125" y="2010" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-10" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;-actionperiod double&#xa;-animationperiod double&#xa;-resourcelimit int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-9">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-9">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-12" value="-scheduleActions&#xa;-getAnimationPeriod&#xa;-executePersonFullActivity&#xa;-moveToFull&#xa;-nextPositionDude&#xa;-transformFull" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-9">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-13" value="Person_Searching" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="2430" y="2010" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-14" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;-actionperiod double&#xa;-animationperiod double&#xa;-resourcelimit int&#xa;&#xa;-resourcecount int&#xa;-health int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-13">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-13">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-16" value="-scheduleActions&#xa;-getAnimationPeriod&#xa;-executePersonFullActivity&#xa;-moveToFull&#xa;-nextPositionDude&#xa;-transformFull" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-13">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-17" value="Obstacle" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="2730" y="2020" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-18" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-17">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-17">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-20" value="+nextImage(): void&#xa;&#xa;&#xa;+nextPositionFairy(WorldModel, Point): Point          &#xa;+nextPositionPerson(WorldModel, Point): Point  &#xa;&#xa;+getCurrentImage(): PImage&#xa;+log(): String&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-17">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-21" value="Fairy" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="3020" y="2020" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-22" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-21">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-21">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-24" value="+nextImage(): void&#xa;&#xa;&#xa;+nextPositionFairy(WorldModel, Point): Point          &#xa;+nextPositionPerson(WorldModel, Point): Point  &#xa;&#xa;+getCurrentImage(): PImage&#xa;+log(): String&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-21">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-25" value="Stump&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="3330" y="2020" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-26" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-25">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-27" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-25">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-28" value="+nextImage(): void&#xa;&#xa;&#xa;+nextPositionFairy(WorldModel, Point): Point          &#xa;+nextPositionPerson(WorldModel, Point): Point  &#xa;&#xa;+getCurrentImage(): PImage&#xa;+log(): String&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-25">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-29" value="Sapling" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="3620" y="2020" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-30" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-29">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-29">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-32" value="+nextImage(): void&#xa;&#xa;&#xa;+nextPositionFairy(WorldModel, Point): Point          &#xa;+nextPositionPerson(WorldModel, Point): Point  &#xa;&#xa;+getCurrentImage(): PImage&#xa;+log(): String&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-29">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-33" value="Tree" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;hachureGap=4;pointerEvents=0;sketch=0;fontColor=#5AA9E6;strokeColor=#FF6392;fillColor=#FFE45E;" vertex="1" parent="1">
+          <mxGeometry x="3910" y="2020" width="260" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-34" value="-id: String&#xa;-position: Point&#xa;-images: List&lt;PImage&gt;&#xa;-imageIndex: int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-33">
+          <mxGeometry y="26" width="260" height="174" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-35" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-33">
+          <mxGeometry y="200" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="ymBvVgzi_eejHNHh2C19-36" value="+nextImage(): void&#xa;&#xa;&#xa;+nextPositionFairy(WorldModel, Point): Point          &#xa;+nextPositionPerson(WorldModel, Point): Point  &#xa;&#xa;+getCurrentImage(): PImage&#xa;+log(): String&#xa;+getID() &#xa;+getPosition()&#xa;+setPosition()&#xa;&#xa;  &#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="ymBvVgzi_eejHNHh2C19-33">
+          <mxGeometry y="208" width="260" height="182" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
