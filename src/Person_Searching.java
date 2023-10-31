@@ -26,6 +26,7 @@ public class Person_Searching extends Entity implements NeedSchedule{
     public double getAnimationPeriod() {
         return animationPeriod;
     }
+    public void decreaseHealth(){ health--; }
 
     public void executePersonSearchingActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
         Optional<Entity> target = world.findNearest(this.getPosition(), new ArrayList<>(Arrays.asList(EntityKind.TREE, EntityKind.SAPLING)));
@@ -43,7 +44,19 @@ public class Person_Searching extends Entity implements NeedSchedule{
     public boolean moveToSearching(WorldModel world, Entity target, EventScheduler scheduler) {
         if (this.getPosition().adjacent(target.getPosition())) {
             resourceCount += 1;
-            //target.health--;
+            if (target.getClass() == Sapling.class){
+                Sapling sap = (Sapling) target;
+                sap.decreaseHealth();
+            }
+            else if (target.getClass() == Person_Searching.class){
+                Person_Searching ps = (Person_Searching) target;
+                ps.decreaseHealth();
+            }
+            else if (target.getClass() == Tree.class){
+                Tree tre = (Tree) target;
+                tre.decreaseHealth();
+            }
+
             return true;
         } else {
             Point nextPos = nextPositionDude(world, target.getPosition());

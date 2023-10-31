@@ -31,6 +31,8 @@ public class Sapling extends Entity implements NeedSchedule{
         return animationPeriod;
     }
 
+    public void decreaseHealth(){ health--; }
+
     private boolean transformSapling(WorldModel world, EventScheduler scheduler, ImageStore imageStore) {
         if (health <= 0) {
             Stump stump = Factory.createStump(WorldLoader.STUMP_KEY + "_" + this.getId(), this.getPosition(), imageStore.getImageList(WorldLoader.STUMP_KEY));

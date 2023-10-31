@@ -20,6 +20,8 @@ public class Tree extends Entity implements NeedSchedule{
     public double getAnimationPeriod() {
         return animationPeriod;
     }
+    public void decreaseHealth(){ health--; }
+
 
     public void executeTreeActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
 
