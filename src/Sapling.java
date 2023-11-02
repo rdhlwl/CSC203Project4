@@ -2,7 +2,7 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Sapling extends Entity implements NeedSchedule{
+public class Sapling extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
     private int health;
     private final double actionPeriod;

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class Person_Searching extends Entity implements NeedSchedule{
+public class Person_Searching extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
     private final double actionPeriod;
     private final double animationPeriod;

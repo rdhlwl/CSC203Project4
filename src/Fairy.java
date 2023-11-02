@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class Fairy extends Entity implements NeedSchedule{
+public class Fairy extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
 
     private final double actionPeriod;

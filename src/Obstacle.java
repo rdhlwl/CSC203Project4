@@ -2,7 +2,7 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Obstacle extends Entity implements NeedSchedule{
+public class Obstacle extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
     private final double animationPeriod;
 

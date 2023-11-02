@@ -2,7 +2,7 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Tree extends Entity implements NeedSchedule{
+public class Tree extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
     private final int healthLimit;
     private int health;
