@@ -29,7 +29,7 @@ public class Person_Searching extends Entity implements NeedSchedule{
     public void decreaseHealth(){ health--; }
 
     public void executePersonSearchingActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
-        Optional<Entity> target = world.findNearest(this.getPosition(), new ArrayList<>(Arrays.asList(EntityKind.TREE, EntityKind.SAPLING)));
+        Optional<Entity> target = world.findNearest(this.getPosition(), new ArrayList<>(Arrays.asList(Tree.class, Sapling.class)));
 
         if (target.isEmpty() || !moveToSearching(world, target.get(), scheduler) || !transformSearching(world, scheduler, imageStore)) {
             scheduler.scheduleEvent(this, Factory.createActivityAction(this, world, imageStore), actionPeriod);

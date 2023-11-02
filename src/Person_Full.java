@@ -29,7 +29,7 @@ public class Person_Full extends Entity implements NeedSchedule{
     }
 
     public void executePersonFullActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
-        Optional<Entity> fullTarget = world.findNearest(this.getPosition(), new ArrayList<>(List.of(EntityKind.HOUSE)));
+        Optional<Entity> fullTarget = world.findNearest(this.getPosition(), new ArrayList<>(List.of(House.class)));
 
         if (fullTarget.isPresent() && moveToFull(world, fullTarget.get(), scheduler)) {
             transformFull(world, scheduler, imageStore);
