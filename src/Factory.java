@@ -72,7 +72,7 @@ public final class Factory {
 
     // need resource count, though it always starts at 0
     public static Person_Searching createPersonSearching(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
-        return new Person_Searching(0, images, id, position, actionPeriod, animationPeriod, resourceLimit, 0, 0);
+        return new Person_Searching(0, images, id, position, actionPeriod, animationPeriod, 0, resourceLimit, 0);
         // return new Entity(EntityKind.PERSON_SEARCHING, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
     }
 
