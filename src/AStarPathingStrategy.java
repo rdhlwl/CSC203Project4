@@ -9,8 +9,8 @@ class AStarPathingStrategy implements PathingStrategy{
 
         List<Point> path = new ArrayList<>();
         PriorityQueue<Node> open = new PriorityQueue<>(Comparator.comparing(Node::getFcost));
-        Map<Point, Node> openSet = new HashMap<>();
-        Set<Point> closed = new HashSet<>();
+        Map<Point, Node> openSet = new HashMap<>(); //map
+        Set<Point> closed = new HashSet<>(); //vs set
 
         Node startNode = new Node(start, null, 0, 0, start.distance(end));
         open.add(startNode);
