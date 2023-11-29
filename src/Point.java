@@ -28,4 +28,15 @@ public final class Point {
         result = result * 31 + y;
         return result;
     }
+    public double distance(Point end) {
+        int xd = this.x - end.x;
+        int yd = this.y - end.y;
+        return Math.sqrt(xd*xd + yd*yd);
+    }
+
+    public double manhattanDistance(Point end) {
+        int xd = Math.abs(this.x - end.x);
+        int yd = Math.abs(this.y - end.y);
+        return xd + yd;
+    }
 }

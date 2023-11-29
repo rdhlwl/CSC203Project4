@@ -21,7 +21,7 @@ public final class Factory {
         return new Animation(entity, repeatCount);
     }
 
-    public static Action createActivityAction(Entity entity, WorldModel world, ImageStore imageStore) {
+    public static Action  createActivityAction(Entity entity, WorldModel world, ImageStore imageStore) {
         //return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
         return new Activity(entity, world, imageStore);
     }
