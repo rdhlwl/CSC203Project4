@@ -69,7 +69,100 @@ public final class VirtualWorld extends PApplet {
     public void mousePressed() {
         Point pressed = mouseToPoint();
         System.out.println("CLICK! " + pressed.x + ", " + pressed.y);
+        ///// test
 
+        // first remove any entities to prevent a crash
+        Optional<Entity> entityOptional1 = world.getOccupant(pressed);
+        if (entityOptional1.isPresent()) {
+            Entity entity = entityOptional1.get();
+            world.removeEntity(scheduler,entity);
+
+        }
+
+//        set background cells
+        world.setBackgroundCell(pressed, new Background("centerrubble", imageStore.getImageList("centerrubble")));
+        Point xminus1 = new Point(pressed.x-1, pressed.y);
+        Point xplus1 = new Point(pressed.x+1, pressed.y);
+        Point ymin1 = new Point(pressed.x, pressed.y-1);
+        Point yplus1 = new Point(pressed.x, pressed.y+1);
+        world.setBackgroundCell(xminus1, new Background("rubble", imageStore.getImageList("rubble")));
+        world.setBackgroundCell(xplus1, new Background("rubble", imageStore.getImageList("rubble")));
+        world.setBackgroundCell(ymin1, new Background("rubble", imageStore.getImageList("rubble")));
+        world.setBackgroundCell(yplus1, new Background("rubble", imageStore.getImageList("rubble")));
+
+        Point tl = new Point(pressed.x-1, pressed.y-1);
+        world.setBackgroundCell(tl, new Background("rubbleTL", imageStore.getImageList("rubbleTL")));
+        Point bl = new Point(pressed.x-1, pressed.y+1);
+        world.setBackgroundCell(bl, new Background("rubbleBL", imageStore.getImageList("rubbleBL")));
+        Point tr = new Point(pressed.x+1, pressed.y-1);
+        world.setBackgroundCell(tr, new Background("rubbleTR", imageStore.getImageList("rubbleTR")));
+        Point br = new Point(pressed.x+1, pressed.y+1);
+        world.setBackgroundCell(br, new Background("rubbleBR", imageStore.getImageList("rubbleBR")));
+
+        Optional<Entity> entityOptional3 = world.getOccupant(xminus1);
+        if (entityOptional3.isPresent()) {
+            Entity entity = entityOptional3.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional4 = world.getOccupant(xplus1);
+        if (entityOptional4.isPresent()) {
+            Entity entity = entityOptional4.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional5= world.getOccupant(ymin1);
+        if (entityOptional5.isPresent()) {
+            Entity entity = entityOptional5.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional6= world.getOccupant(yplus1);
+        if (entityOptional6.isPresent()) {
+            Entity entity = entityOptional6.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional7= world.getOccupant(tl);
+        if (entityOptional7.isPresent()) {
+            Entity entity = entityOptional7.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional8= world.getOccupant(bl);
+        if (entityOptional8.isPresent()) {
+            Entity entity = entityOptional8.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional9= world.getOccupant(tr);
+        if (entityOptional9.isPresent()) {
+            Entity entity = entityOptional9.get();
+            world.removeEntity(scheduler,entity);
+        }
+        Optional<Entity> entityOptional10= world.getOccupant(br);
+        if (entityOptional10.isPresent()) {
+            Entity entity = entityOptional10.get();
+            world.removeEntity(scheduler,entity);
+        }
+
+        // add entities
+        world.tryAddEntity(new Meteor(0,imageStore.getImageList("meteor"), "meteor", pressed, 0.0));
+
+
+        // find target
+        Optional<Entity> target = world.findNearest(pressed, new ArrayList<>(Arrays.asList(Person_Searching.class, Person_Full.class)));
+        //if within distance
+        if (target.isPresent()) {
+            if (pressed.targetProximityEuclidean(target.get().getPosition())) {
+                Point tgpos = target.get().getPosition();
+                System.out.println("WITHIN DIST WITHIN DIST");
+                Zombie zombie1 = Factory.createZombie("zombie", tgpos, .123, .123, imageStore.getImageList(WorldLoader.ZOMBIE_KEY));
+                Entity entity = target.get();
+                world.removeEntity(scheduler, entity);
+
+                //scheduler.unscheduleAllEvents(zombie1);
+                world.tryAddEntity(zombie1);
+                zombie1.scheduleActions(scheduler, world, imageStore);
+
+            }
+        }
+
+        /////// testing done
         Optional<Entity> entityOptional = world.getOccupant(pressed);
         if (entityOptional.isPresent()) {
             Entity entity = entityOptional.get();

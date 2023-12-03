@@ -82,4 +82,8 @@ public final class Factory {
         // return new Entity(EntityKind.PERSON_FULL, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
     }
 
+    public static Zombie createZombie(String id, Point position, double actionPeriod, double animationPeriod, List<PImage> images) {
+        return new Zombie(0,images,id, position, actionPeriod, animationPeriod);
+    }
+
 }

@@ -8,30 +8,31 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-public class Fairy extends Entity implements NeedSchedule, NeedAnimationPeriod{
+public class Zombie extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
 
     private final double actionPeriod;
     private final double animationPeriod;
 
-    public Fairy(int imageIndex, List<PImage> images, String id, Point position, double actionPeriod, double animationPeriod) {
+    public Zombie(int imageIndex, List<PImage> images, String id, Point position, double actionPeriod, double animationPeriod) {
         super(imageIndex, images, id, position);
         this.actionPeriod = actionPeriod;
         this.animationPeriod = animationPeriod;
     }
 
-    public void executeFairyActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
-        Optional<Entity> fairyTarget = world.findNearest(this.getPosition(), new ArrayList<>(List.of(Stump.class)));
+    public void executeZombieActivity(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
+        Optional<Entity> zombieTarget = world.findNearest(this.getPosition(), new ArrayList<>(Arrays.asList(Person_Searching.class, Person_Full.class)));
 
-        if (fairyTarget.isPresent()) {
-            Point tgtPos = fairyTarget.get().getPosition();
+        if (zombieTarget.isPresent()) {
+            Point tgtPos = zombieTarget.get().getPosition();
 
-            if (moveToFairy(world, fairyTarget.get(), scheduler)) {
+            if (moveToZombie(world, zombieTarget.get(), scheduler)) {
 
-                Sapling sapling = Factory.createSapling(WorldLoader.SAPLING_KEY + "_" + fairyTarget.get().getId(), tgtPos, imageStore.getImageList(WorldLoader.SAPLING_KEY));
+                //Sapling sapling = Factory.createSapling(WorldLoader.SAPLING_KEY + "_" + zombieTarget.get().getId(), tgtPos, imageStore.getImageList(WorldLoader.SAPLING_KEY));
+                Zombie zombie = Factory.createZombie(WorldLoader.ZOMBIE_KEY+ "_" + zombieTarget.get().getId(), tgtPos,this.getActionPeriod(), this.getAnimationPeriod(), imageStore.getImageList(WorldLoader.ZOMBIE_KEY));
 
-                world.tryAddEntity(sapling);
-                sapling.scheduleActions(scheduler, world, imageStore);
+                world.tryAddEntity(zombie);
+                zombie.scheduleActions(scheduler, world, imageStore);
             }
         }
 
@@ -42,17 +43,19 @@ public class Fairy extends Entity implements NeedSchedule, NeedAnimationPeriod{
         return animationPeriod;
     }
 
+    public double getActionPeriod() { return actionPeriod; }
+
     public void scheduleActions(EventScheduler scheduler, WorldModel world, ImageStore imageStore) {
         scheduler.scheduleEvent(this, Factory.createActivityAction(this, world, imageStore), actionPeriod);
         scheduler.scheduleEvent(this, Factory.createAnimationAction(this, 0), animationPeriod);
     }
 
-    public boolean moveToFairy(WorldModel world, Entity target, EventScheduler scheduler) {
+    public boolean moveToZombie(WorldModel world, Entity target, EventScheduler scheduler) {
         if (this.getPosition().adjacent(target.getPosition())) {
             world.removeEntity(scheduler, target);
             return true;
         } else {
-            Point nextPos = nextPositionFairy(world, target.getPosition());
+            Point nextPos = nextPositionZombie(world, target.getPosition());
 
             if (!this.getPosition().equals(nextPos)) {
                 world.moveEntity(scheduler, this, nextPos);
@@ -116,7 +119,7 @@ public class Fairy extends Entity implements NeedSchedule, NeedAnimationPeriod{
 
 
 
-    public Point nextPositionFairy(WorldModel world, Point destPos) {
+    public Point nextPositionZombie(WorldModel world, Point destPos) {
         int horiz = Integer.signum(destPos.x - this.getPosition().x);
         Point newPos = new Point(this.getPosition().x + horiz, this.getPosition().y);
 

@@ -31,6 +31,10 @@ public class Activity implements Action {
             Person_Full personFull = (Person_Full)entity;
             personFull.executePersonFullActivity(world, imageStore, scheduler);
         }
+        else if (entity instanceof Zombie) {
+            Zombie zombie = (Zombie)entity;
+            zombie.executeZombieActivity(world, imageStore, scheduler);
+        }
         else {
             throw new UnsupportedOperationException
                     (String.format("executeActivityAction not supported for %s", entity.getClass()));

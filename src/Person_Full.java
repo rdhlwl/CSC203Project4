@@ -53,20 +53,36 @@ public class Person_Full extends Entity implements NeedSchedule, NeedAnimationPe
         }
     }
 
+//    public Point nextPositionDude(WorldModel world, Point destPos) {
+//        PathingStrategy strat = new AStarPathingStrategy();
+//
+//        Predicate<Point> canPassThrough = x -> world.getOccupant(destPos).get().getClass() != Obstacle.class;
+//        BiPredicate<Point, Point> withinReach = (p1, p2) -> p1.adjacent(p2);
+//
+//        List<Point> path = strat.computePath(getPosition(), destPos, canPassThrough, withinReach, PathingStrategy.CARDINAL_NEIGHBORS);
+//
+//        if (path.isEmpty()) {
+//            System.out.println("No path found");
+//            return null;
+//        } else {
+//            return path.get(0);
+//        }
+//    }
+
     public Point nextPositionDude(WorldModel world, Point destPos) {
-        PathingStrategy strat = new AStarPathingStrategy();
+        int horiz = Integer.signum(destPos.x - this.getPosition().x);
+        Point newPos = new Point(this.getPosition().x + horiz, this.getPosition().y);
 
-        Predicate<Point> canPassThrough = x -> world.getOccupant(destPos).get().getClass() != Obstacle.class;
-        BiPredicate<Point, Point> withinReach = (p1, p2) -> p1.adjacent(p2);
+        if (horiz == 0 || world.getOccupant(newPos).isPresent() && world.getOccupant(newPos).get().getClass() != Stump.class) {
+            int vert = Integer.signum(destPos.y - this.getPosition().y);
+            newPos = new Point(this.getPosition().x, this.getPosition().y + vert);
 
-        List<Point> path = strat.computePath(getPosition(), destPos, canPassThrough, withinReach, PathingStrategy.CARDINAL_NEIGHBORS);
-
-        if (path.isEmpty()) {
-            System.out.println("No path found");
-            return null;
-        } else {
-            return path.get(0);
+            if (vert == 0 || world.getOccupant(newPos).isPresent() && world.getOccupant(newPos).get().getClass() != Stump.class) {
+                newPos = this.getPosition();
+            }
         }
+
+        return newPos;
     }
 
 

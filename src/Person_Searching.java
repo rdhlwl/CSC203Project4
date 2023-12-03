@@ -86,21 +86,38 @@ public class Person_Searching extends Entity implements NeedSchedule, NeedAnimat
         return false;
     }
 
-    public Point nextPositionDude(WorldModel world, Point destPos) {
-        PathingStrategy strat = new AStarPathingStrategy();
+//    public Point nextPositionDude(WorldModel world, Point destPos) {
+//        PathingStrategy strat = new AStarPathingStrategy();
+//
+//        Predicate<Point> canPassThrough = x -> world.getOccupant(destPos).get().getClass() != Obstacle.class;
+//        BiPredicate<Point, Point> withinReach = (p1, p2) -> p1.adjacent(p2);
+//
+//        List<Point> path = strat.computePath(getPosition(), destPos, canPassThrough, withinReach, PathingStrategy.CARDINAL_NEIGHBORS);
+//
+//        if (path.isEmpty()) {
+//            System.out.println("No path found");
+//            return null;
+//        } else {
+//            return path.get(0);
+//        }
+//        }
 
-        Predicate<Point> canPassThrough = x -> world.getOccupant(destPos).get().getClass() != Obstacle.class;
+    public Point nextPositionDude(WorldModel world, Point destPos) {
+        int horiz = Integer.signum(destPos.x - this.getPosition().x);
+        Point newPos = new Point(this.getPosition().x + horiz, this.getPosition().y);
+
+        if (horiz == 0 || world.getOccupant(newPos).isPresent() && world.getOccupant(newPos).get().getClass() != Stump.class) {
+            int vert = Integer.signum(destPos.y - this.getPosition().y);
+            newPos = new Point(this.getPosition().x, this.getPosition().y + vert);
+
+            if (vert == 0 || world.getOccupant(newPos).isPresent() && world.getOccupant(newPos).get().getClass() != Stump.class) {
+                newPos = this.getPosition();
+            }
+        }
         BiPredicate<Point, Point> withinReach = (p1, p2) -> p1.adjacent(p2);
 
-        List<Point> path = strat.computePath(getPosition(), destPos, canPassThrough, withinReach, PathingStrategy.CARDINAL_NEIGHBORS);
-
-        if (path.isEmpty()) {
-            System.out.println("No path found");
-            return null;
-        } else {
-            return path.get(0);
-        }
-        }
+        return newPos;
+    }
 
     }
 

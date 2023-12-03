@@ -14,6 +14,11 @@ public final class Point {
         return (x == p2.x && Math.abs(y - p2.y) == 1) || (y == p2.y && Math.abs(x - p2.x) == 1);
     }
 
+    public boolean targetProximityEuclidean(Point targetPos){
+        double dist = Math.sqrt((targetPos.y - y) * (targetPos.y - y) + (targetPos.x - x) * (targetPos.x - x));
+        return (dist < 5.0);
+    }
+
     public String toString() {
         return "(" + x + "," + y + ")";
     }

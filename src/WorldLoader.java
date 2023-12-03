@@ -30,6 +30,19 @@ public class WorldLoader {
     private static final int TREE_HEALTH = 2;
     private static final int TREE_NUM_PROPERTIES = 3;
 
+    ////////////
+
+    public static final String ZOMBIE_KEY = "zombie";
+    private static final int ZOMBIE_ANIMATION_PERIOD = 1;
+    private static final int ZOMBIE_ACTION_PERIOD = 0;
+    private static final int ZOMBIE_NUM_PROPERTIES = 2;
+
+    private static final String METEOR_KEY = "meteor";
+    private static final int METEOR_ANIMATION_PERIOD = 0;
+    private static final int METEOR_NUM_PROPERTIES = 1;
+
+    ////////////
+
     public static void load(WorldModel world, Scanner saveFile, ImageStore imageStore, Background defaultBackground){
         parseSaveFile(world, saveFile, imageStore, defaultBackground);
         if(world.getBackground() == null){
@@ -99,6 +112,10 @@ public class WorldLoader {
                 case TREE_KEY -> parseTree(world, properties, pt, id, imageStore);
                 case SAPLING_KEY -> parseSapling(world, properties, pt, id, imageStore);
                 case STUMP_KEY -> parseStump(world, properties, pt, id, imageStore);
+                ///////
+                case ZOMBIE_KEY -> parseZombie(world, properties, pt, id, imageStore);
+                case METEOR_KEY -> parseObstacle(world, properties, pt, id, imageStore);
+                ///////
                 default -> throw new IllegalArgumentException("Entity key is unknown");
             }
         }else{
@@ -168,5 +185,27 @@ public class WorldLoader {
             throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", STUMP_KEY, STUMP_NUM_PROPERTIES));
         }
     }
+
+
+
+    private static void parseZombie(WorldModel world, String[] properties, Point pt, String id, ImageStore imageStore) {
+        if (properties.length == ZOMBIE_NUM_PROPERTIES) {
+            Entity entity = Factory.createFairy(id, pt, Double.parseDouble(properties[ZOMBIE_ACTION_PERIOD]), Double.parseDouble(properties[ZOMBIE_ANIMATION_PERIOD]), imageStore.getImageList(ZOMBIE_KEY));
+            world.tryAddEntity(entity);
+        }else{
+            throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", ZOMBIE_KEY, ZOMBIE_NUM_PROPERTIES));
+        }
+    }
+
+    private static void parseMeteor(WorldModel world, String[] properties, Point pt, String id, ImageStore imageStore) {
+        if (properties.length == OBSTACLE_NUM_PROPERTIES) {
+            Entity entity = Factory.createObstacle(id, pt, Double.parseDouble(properties[OBSTACLE_ANIMATION_PERIOD]), imageStore.getImageList(OBSTACLE_KEY));
+            world.tryAddEntity(entity);
+        }else{
+            throw new IllegalArgumentException(String.format("%s requires %d properties when parsing", OBSTACLE_KEY, OBSTACLE_NUM_PROPERTIES));
+        }
+    }
+
+
 
 }
